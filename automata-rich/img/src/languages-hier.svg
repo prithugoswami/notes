@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="169.96533mm"
+   height="169.96533mm"
+   viewBox="0 0 169.96533 169.96533"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.4 5da689c313, 2019-01-14"
+   sodipodi:docname="languages-hier.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="523.31968"
+     inkscape:cy="470.59698"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="672"
+     inkscape:window-height="736"
+     inkscape:window-x="6"
+     inkscape:window-y="26"
+     inkscape:window-maximized="0"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-21.228643,-83.883406)">
+    <circle
+       style="opacity:1;fill:none;stroke:#000000;stroke-width:0.74655527;stroke-miterlimit:4;stroke-dasharray:none"
+       id="path836"
+       cx="106.21131"
+       cy="168.86607"
+       r="84.60939" />
+    <circle
+       style="opacity:1;fill:none;stroke:#000000;stroke-width:0.667;stroke-miterlimit:4;stroke-dasharray:none"
+       id="path836-5"
+       cx="106.21131"
+       cy="168.86607"
+       r="64.28833" />
+    <circle
+       style="opacity:1;fill:none;stroke:#000000;stroke-width:0.60299999;stroke-miterlimit:4;stroke-dasharray:none"
+       id="path836-5-3"
+       cx="106.21131"
+       cy="168.86607"
+       r="45.66069" />
+    <circle
+       style="opacity:1;fill:none;stroke:#000000;stroke-width:0.51788515;stroke-miterlimit:4;stroke-dasharray:none"
+       id="path836-5-3-5"
+       cx="106.21131"
+       cy="168.86607"
+       r="21.473536" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.33862591px;line-height:1.25;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.23346563"
+       x="80.235863"
+       y="98.062958"
+       id="text915"><tspan
+         sodipodi:role="line"
+         id="tspan913"
+         x="80.235863"
+         y="98.062958"
+         style="stroke-width:0.23346563">SD languages</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.33862591px;line-height:1.25;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.23346563"
+       x="81.309799"
+       y="117.52344"
+       id="text915-6"><tspan
+         sodipodi:role="line"
+         id="tspan913-2"
+         x="81.309799"
+         y="117.52344"
+         style="stroke-width:0.23346563">D Languages</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.59920597px;line-height:1.25;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.21498016"
+       x="107.68272"
+       y="134.12975"
+       id="text937"><tspan
+         sodipodi:role="line"
+         id="tspan935"
+         x="107.68272"
+         y="134.12975"
+         style="text-align:center;text-anchor:middle;stroke-width:0.21498016">Context-free</tspan><tspan
+         sodipodi:role="line"
+         x="107.68272"
+         y="144.87875"
+         style="text-align:center;text-anchor:middle;stroke-width:0.21498016"
+         id="tspan939">Language</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.59920597px;line-height:1.25;font-family:'Latin Modern Roman';-inkscape-font-specification:'Latin Modern Roman, ';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.21498016"
+       x="107.80311"
+       y="158.45552"
+       id="text937-9"><tspan
+         sodipodi:role="line"
+         x="107.80311"
+         y="158.45552"
+         style="text-align:center;text-anchor:middle;stroke-width:0.21498016"
+         id="tspan939-2">Regular</tspan><tspan
+         sodipodi:role="line"
+         x="107.80311"
+         y="169.20453"
+         style="text-align:center;text-anchor:middle;stroke-width:0.21498016"
+         id="tspan964">Languages</tspan></text>
+  </g>
+</svg>
