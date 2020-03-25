@@ -105,5 +105,53 @@ of how this is used on page 73)
 ## Expressions
 - Assemblers allow to use expressions wherever we can use a single operand.
 - Assemblers allow the use of `+, -, *` and `/`. The terms in the expression can
-be constants, user-defined symbols or special terms (like the current value of
-the location counter - `*`)
+  be constants, user-defined symbols or special terms (like the current value of
+  the location counter - `*`)
+- Expressions can be absolute or relative - i.e they can produce absolute values
+or relative values (relative values being those that do not need to be touched
+during program relocation)
+- An absolute expression may contain several relative terms provided that they
+occure in pairs in the expression with opposite signs. None of the relative
+terms can not enter into a multiplication or division operation.
+- In relative expression all of the relative terms except on can be paired.
+No relative term may enter multiplication or division operation.
+- Expressions need to be flagged so that they can be processed by the
+assembler.
+
+![Symbol table entries with flags for relative and absolute values](img/expression-type-flags.png){width=20%}
+
+- With this info the assembler can easily determine the type of each expressoin
+  used as an operand and generate Modification records in the object program
+  for relative values.
+
+
+## Program Blocks
+
+- Assemblers provide feature to separate the program into segments known
+as program blocks. These blocks may appear in different order in the
+object program compared to the source program and these blocks may be
+handled independently of each other my the assembler.
+- The directive `USE` indicates which portions of the source program belong 
+to the various blocks.
+- `CDATA` - contains data areas that are a few words in length
+- `CBLKS` - contains all data areas that consist of larger blocks of memory
+- Assembler manages to logically connect the blocks in a way that it seems
+they were written continuously. This is accomplished by maintaining a location
+counter for each block.
+- The blocks are arranged together during Pass 1 and then the address values
+that are required for Pass 2 are relative to the start of the program not 
+the start of the block.
+
+![Assembler constructs this table at the end of pass 1](img/block-pass1-table.png){width=40%}
+
+- The process of assembling a program with blocks can be imagined as the
+  assembler taking the similar blocks (eg default) and stitching them together
+  in the same place and then placing the CDATA after default and placing CBLKS
+  after CDATA (see fig 2.14)
+
+
+## Control Sections and Program Linking
+
+- control section is the part of the program that maintains its identity after
+assembly; each control section can be loaded and relocated independently of
+others. Used for subroutines and other logical subdivisions of the programs.
