@@ -172,3 +172,83 @@ the architecture was designed. The change is because of the norm shifting
 towards the use of high-level programming language and the compiler plays a
 huge role in determining the performance of code than just the raw power of the
 hardware.
+
+### RISC
+
+Best example of when compiler design influenced computer architecture. RISC
+made the instructions simpler and less in number than CISC, laying more
+emphasis on compilers to do the job to come up with efficient target code and
+making the hardware more maintainable. Even though x86 processor is a popular
+architecture and is a CISC architecture, the most efficient way to use it is
+just by using simpler instructions.
+
+### Specialized Architecture
+
+Specialized architecture features are proposed and are developed along side
+with compiler techniques as well in order to accomplish them. Compilers are
+built to use the proposed specific architectural features and then evaluated in
+a simulator. Thus, the development of compiler technology also affects the
+implementation of specialized hardware.
+
+## Program Translation
+
+The techniques used to convert high level language to low level language can
+also be used to convert one language to another.
+
+### Binary Translation
+
+Compiler technology can be used to convert the binary code from machine to
+another, allowing a machine to run programs which were compiled for another
+instruction set. Many companies used binary translation to make their programs
+available on different types of machines. It was also used to provide legacy
+support for programs that were written for an older instruction set that was
+not being used any more.
+
+### Hardware Synthesis
+
+Hardware can also be expressed using high level languages like Verilog and
+VHDL. Hardware designs are described in RTL (register transfer level) where the
+variables represent registers and the expression, combinational logic. Hardware
+synthesizers convert RTL to gates which are then mapped to transistors and
+eventually to physical circuitry.
+
+### Database Query Interpreters
+
+SQL and other query languages are used to interact with a Database server. They
+consists of predicate and boolean expressions as well. They allow to search,
+modify and add data to a database.
+
+### Compiled Simulation
+
+Simulation are used to evaluate a design or experiment with a phenomenon, but
+they can be expensive as the design must be provided to the simluator along
+with the parameters ans input. Compiled Simulation can be faster and run
+natively. These tools take design in VHDL and Verilog and convert them to
+faster compiled simulations.
+
+
+## Software Productivity Tools
+
+Data flow analysis techniques can be used to catch errors in the program
+statically (i.e. before they are run). Many of these data-flow techniques used
+to detect errors used in compilers can be used to aid programmers while they
+are writing code. So many techniques used in compilers can also be used to aid
+software productivity by helping programmers.
+
+### Type Checking
+
+Used to catch inconsistencies in programs where operation is applied to the
+wrong type of object, or if the parameters passed to the procedure does not
+matches it's signature.
+
+### Bounds Checking
+
+C does not have an array bound check and hence it is up to the user to ensure
+the arrays are not accessed out of the bounds. This can compromise security by
+leveraging buffer overflow techniques.
+
+### Memory-Management Tools
+
+Garbage collection is another example of tradeoff between efficiency and
+productivity of programmer and software reliability. Static tools that check
+for memory leaks and other memory errors have also been developed.
