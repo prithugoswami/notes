@@ -81,3 +81,43 @@ parser (syntax analyser):
   attribute values are used.
 - The token name influences how the parsing is done, while the attribute value
   influences the translation of the tokens after the parse.
+- The attribute value of ta token may consist a great deal of information about
+  that token. An attribute value can be a structure of information about that
+  token. For example for an **id** token, there can be information about it's
+  type, it's lexeme, or it's location in the source code. All this information
+  is kept in the symbol table. Hence the attribute value is a pointer to an
+  entry in the symbol table.
+- **Example**: Token names and associated attribute values:
+
+                                            E = M * C ** 2
+
+  $\langle\textbf{id}, \text{pointer to symbol-table entry for \texttt{E}}\rangle$\
+$\langle\textbf{assign\_op}\rangle$\
+$\langle\textbf{id}, \text{pointer to symbol-table entry for \texttt{M}}\rangle$\
+$\langle\textbf{mult\_op}\rangle$\
+$\langle\textbf{id}, \text{pointer to symbol-table entry for \texttt{C}}\rangle$\
+$\langle\textbf{exp\_op}\rangle$\
+$\langle\textbf{number}, \text{integer value 2}\rangle$\
+
+  For the last the token (**number**) a typical compiler would store a
+  character string in the symbol table representing the number. In this case
+  "2" and the pointer to it would be the attribute value of the token.
+
+## Lexical Errors
+- The lexical analyzer is not always able to identify an error without the help
+  of another component. For example `fi ( a == f(x))...`. In this case `fi`
+  could be a **id** of a function that is not yet declared or it could be a
+  misspelled form of "if". The lexical analyzer pases it as an id and lets the
+  parser decide whether it's valid or not
+- Lexical errors can be corrected/recovered by the lexical analyzer itself. If
+  no patterns match the prefix of the remaining input, then the lexical
+  analyzer can delete the successive characters from the input until a token is
+  found.
+- There are a few more such **transformation** that the lexical analyzer can
+  perform to "repair" the input:
+  1. Delete one character from remaining input.
+  2. Insert a missing character from remaining input.
+  3. Replace a character with another character.
+  4. Transpose two adjacent characters.
+- A simple strategy may be to see if the remaining input can be transformed
+  into a valid lexeme with a single transformation.
