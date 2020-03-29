@@ -121,3 +121,65 @@ $\langle\textbf{number}, \text{integer value 2}\rangle$\
   4. Transpose two adjacent characters.
 - A simple strategy may be to see if the remaining input can be transformed
   into a valid lexeme with a single transformation.
+
+
+# Input Buffering
+
+Sometimes it's necessary to lookahead one or more character beyond the next
+lexeme before we can be sure we have the right lexeme. For example we cannot be
+sure we've seen the end of an identifier until we see a character that is not a
+digit or a letter, and therefore is not a part of the identifier. A single
+character operator like `<`, `=` or `-` could also be the start of a two-character
+operator like `<=`, `==` or `->`.
+
+## Buffer Pairs
+
+- Buffering is used to reduce the amount of overhead required in reading a
+  single character. An important scheme involves two buffers that are
+  alternatively reloaded.
+
+![Pair of input bufferes](img/buffer.png){width=75%}
+
+- Each buffer is of the size *N* where *N* is usually the size of a disk block.
+- We can use one system read command to read *N* characters into the buffer
+  rather than using one system call for each character.
+- **eof** marks the end of the source program.
+- Two pointers are maintained:
+  1. `lexemeBegin`, marks the beginning of the current lexeme whose extent is
+  being determined.
+  2. `forward` scans ahead until a pattern is found.
+- When `forward` reaches the end of the buffer, we reload the second buffer and
+  then point forward to the start of the second buffer.
+- We never overwrite a lexeme in the buffer before determining it.
+
+## Sentinels
+
+- If we use the previous scheme we have to make two tests every time we read a
+  character, one for determining the end of buffer and the other to determine
+  what character was read.
+- We can combine both of these tests using a sentinel character that marks the
+  end of the buffer. The sentinel character is a special character that cannot
+  be a part of the source program.
+- **eof** is the choice here. It still retains it's use as the end of file
+  marker, as if it's encountered anywhere else other than the end of the buffer
+  it means that we have reached the end of the source program.
+- Algorithm:
+```
+        switch (*forward++) {
+            case eof:
+                if (forward  is at the end of first buffer) {
+                    reload second buffer;
+                    forward = beginning of second buffer;
+                }
+                else if (forward  is at the end of second buffer) {
+                    reload first buffer;
+                    forward = beginning of first buffer;
+                }
+                else /* eof within a buffer marks the end of input */
+                    terminate lexical analysis;
+                break;
+            /*Cases for other character*/
+            /*   ..    */
+            /*   ..    */
+        }
+```
