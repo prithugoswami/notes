@@ -183,3 +183,44 @@ operator like `<=`, `==` or `->`.
             /*   ..    */
         }
 ```
+
+# Specification of Tokens
+
+## Strings and Languages
+
+## Operations on Languages
+
+## Regular Expressions
+
+- Notation used to describe a language.
+- Some conventions:
+  1. The unary operator `*` has highest precedence and is left associative.
+  2. Concatenations has second highest precedence and is left associative.
+  3. `|` has lowest precedence and is left associative.
+- Language that can be defined by a regular expression is called a regular set.
+  if two regular expression $r$ and $s$ denote the same regular set, we say
+  they are equivalent write r=s
+
+![Example of regular expression](img/eg3.4.png){width=70%}#
+
+## Regular Definition
+
+- For convenience, we may give names to the regular expressions and use those
+  names in subsequent expressions, as if the names were themselves symbols.
+- If $\sum$ is the alphabet of basic symbols, then *regular definition* is a
+  sequence of definitions of the form:
+
+  $$d_1 \to r_1$$
+  $$d_2 \to r_2$$
+  $$d_3 \to r_3$$
+
+  where:
+    1. Each $d_i$ is a new symbol, not in $\sum$ and not same as any other
+       *d's*
+    2. Each $r_i$ is a regular expression over the alphabet $\sum \cup \{d_1,
+       d_2,...,d_{i-1}\}$
+- _We replace the uses of $d_1$ in $r_2$ by $r_1$, then replacing the use of
+  $d_1$ and $d_2$ in $r_3$ by $r_1$ and (the substituted) $r_2$ and so on.
+
+![C identifiers regular definition exampele](img/cid-reg-definitions.png){width=40%}
+
