@@ -224,3 +224,107 @@ operator like `<=`, `==` or `->`.
 
 ![C identifiers regular definition exampele](img/cid-reg-definitions.png){width=40%}
 
+![Unsigned numbers (integer or floating point) are strings such as 5238, 0.0123, 6.33E4, or 1.89E-4](img/unsigned-number-example.png){width=60%}
+
+## Extensions of Regular Expressions
+
+extensions enhance the ability of regular expressions to be able to specify
+string patterns
+
+1. **One or more instances**. Unary postfix operator $^+$ represents the
+   positive closure of a regular expression and its language.  Relation between
+   Kleene closure and positive closure is: $r^*=r^+ | \epsilon$ and $r^+ = rr^*
+   = r^*r\*$
+1. **Zero or one instance**. Unary postfix operator $?$ means "zero or one
+   occurrence". $r?$ is equivalent to $r|\epsilon$
+3. **Character classes**. A regular expression $a_1 | a_2 | ... | a_n$ can be
+   replaced by the shorthand $[a_1 a_2 ... a_n]$. When $a_1,a_2 ... a_n$ are a
+   logical sequence then they can be replaced by $[a_1 - a_n]$. Like the
+   sequence of numbers or alphabets. [a,b,c] is a shorthand for a|b|c, and
+   [a-z] is a shorthand for a|b|c|...|z.
+
+**Simplification of the previous two examples**:
+
+![](img/simplificiation-cid.png){width=35%}
+
+![](img/simplification-number.png){width=45%}
+
+\pagebreak
+
+# Recognition of Tokens
+
+**Example: Grammar for branching statements**
+
+![](img/grammar-brancing-stmts.png){width=42%}
+
+Ther terminals - **if, then, else, relop, id** and **number** are the names of
+the tokens and their patterns are described using regular definitions below
+
+**Patterns for tokens**
+
+![](img/patterns-tokens.png){width=55%}
+
+**Tokens, their patterns and attribute values for the example**
+
+![](img/table-patterns-tokens.png){width=60%}
+
+## Transition Diagrams
+
+We make transition diagrams from the regular expressions. Some conventions
+about transition diagrams:
+
+1. Certain states are said to be *accepting,* or *final*. These states indicate
+   that a lexeme has been found, although the actual lexeme may not consist of
+   all positions between the *lexemeBegin* and *forward* pointers. We always
+   indicate an accepting state by a double circle, and if there is an action to
+   be taken -- typically returning a token and an attribute value to the parser
+   -- we shall attach that action tot he accepting state.
+2. In addition, if it is necessary to retract the *forward* pointer one
+   position (i.e., the lexeme does not include the symbol that got us to the
+   accepting state), then we shall additionally place a $^*\*$ near that
+   accepting state. If there are multiple number of retractions required then
+   we can attach any number of $^*\*$'s to the accepting state.
+3. One state is designated the *start state*, or *initial state*; it is
+   indicated by an adge, labeled "start," entering from nowhere. The transitio
+   diagram always begins in the start state before any input symobols have been
+   read.
+
+![Transition diagram for **relop**](img/relop-transition.png){width=56%}
+
+\pagebreak
+
+## Recognition of Reserved Words and Identifiers
+
+There are two methods discussed:
+
+1. We can already have entries in the symbol table for the reserved words and
+   then have the same transition diagram for both **id** and reserved word
+   tokens as they are the same. And when we get a token accepted we check if
+   it's there in the symbol table already - if it is, then we know that it is a
+   reserved word. We consult the symbol table basically. If an actual **id**
+   token is accepted and we find that it's already in the symbol table then we
+   check the token name in the symbol table - which would be **id** from the
+   previous time that token was encountered.
+
+![Transition diagram for **id** and keyword](img/recognition-id-res-1.png){width=72%}
+
+2. We can have a separate transition diagram for every reserved keyword and run
+   it. For this every single character of the keyword must be checked one by
+   one changing states.
+
+![Hypothetical transition diagram for the keyword `then`](img/recognition-id-res-2.png){width=80%}
+
+
+## Completion of the Running Example
+
+We can then now make a transition diagram for **number** token similarly.
+
+![](img/transition-number.png){width=85%}
+
+
+
+## Architecture of a Transition-Diagram-Based Lexical Analyzer
+
+Transition Diagrams can be implemented as switch cases: (page 158)
+- We can run the transition in parallel or one by one in a sequence or just
+  combine all the transition diagrams into one transition diagram
