@@ -328,3 +328,66 @@ We can then now make a transition diagram for **number** token similarly.
 Transition Diagrams can be implemented as switch cases: (page 158)
 - We can run the transition in parallel or one by one in a sequence or just
   combine all the transition diagrams into one transition diagram
+
+
+# The Lexical-Analyzer Generator `Lex`
+
+Lex produces a lexical analyzer by giving it an input of regular expressions
+describing the patterns for tokens. Lex takes input in *Lex language* that
+denotes the patterns of the tokens.  Behind the scenes, Lex converts these
+patterns into transition diagrams and produces code in a file called lex.yy.c
+
+
+![How lex works](img/how-lex-works.png){width=55%}
+
+The parser works closely with the lexical analyzer and hence uses the compiled
+C code as a subroutine call.
+
+## Use of `Lex`
+
+
+## Structure of `Lex` Programs
+
+```
+         declarations
+         %%
+         translation rules
+         %%
+         auxiliary functions
+```
+
+- **declaration** section consists of declarations of variables, *manifest
+  constants* (identifiers declared to stand for a constant, eg the name of a
+  token), and *regular definitions* (like seen before)
+- **translation rules** each have the form
+
+```
+         pattern { action }
+```
+
+- `pattern` is a regular expression that may use the regular definitions from
+  the declaration section. The `actions` are fragments of code typically
+  written in C.
+- The third section holds whatever additional functions required for the
+  actions.
+- This is how the lexical analyzer works with the parser:
+  1. The parser calls the lexical analyzer and the lexical analyzer reads the
+  remaining input until it finds the longest prefix in the input matching a
+  pattern $P_i$. It then executes the corresponding action $A_i$
+  2. If $A_i$ returns something then that is returned the parser else the
+  lexical analyzer finds another lexeme that will return a value to the parser.
+  A situation where nothing is required to be returned is when the lexical
+  analyzer finds a whitespace lexeme.
+  3. The lexical analyzer returns the token name to the parser and uses the
+  global variable `yylval` to pass additional information like the attribute of
+  the token, if needed.
+- **Look at the example 3.11 on page 165**
+
+
+## Conflict Resolution in `Lex`
+(related to the above example 3.11)
+
+## The Lookahead Operator
+- If we want to match a pattern for a lexeme and it depends on a particular
+  pattern that follows that lexeme, then we can use the lookahead operator
+  which will match the pattern after `/` and decide to accept the lexeme
