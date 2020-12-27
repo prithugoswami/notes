@@ -11,4 +11,4 @@
 
 
 A compiled copy can be found here:
-[https://x.prithu.xyz/pub/aparokshanubhuti.pdf](https://x.prithu.xyz/pub/aparokshanubhuti.pdf)
+[https://x.prithu.xyz/pub/aparokshanubhuti.pdf](https://i.prithu.xyz/pub/aparokshanubhuti.pdf)
