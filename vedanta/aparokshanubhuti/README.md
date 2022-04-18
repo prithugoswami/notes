@@ -7,8 +7,8 @@
 
 ### Fonts
 
-[Sanskrit 2003](https://omkarananda-ashram.org/Sanskrit/sanskrit2003.zip)
+[Sanskrit 2003](https://omkarananda-ashram.org/Sanskrit/sanskrit2003.zip), ([mirror](https://i.prithu.dev/sanskrit2003.zip))
 
 
 A compiled copy can be found here:
-[https://x.prithu.xyz/pub/aparokshanubhuti.pdf](https://i.prithu.xyz/pub/aparokshanubhuti.pdf)
+[aparokshanubhuti.pdf](https://i.prithu.xyz/pub/notes/vedanta/aparokshanubhuti.pdf)
